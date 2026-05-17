@@ -17,11 +17,10 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # ── Gate: DCO sign-off (PR only — skipped on push, treated as success) ──────
+  # ── Gate: DCO sign-off (mandatory on every push and PR) ────────────────────
   dco:
     name: DCO Sign-off
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
     steps:
       - uses: christophebedard/dco-check@v0.5.0
         with:
